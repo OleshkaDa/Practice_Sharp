@@ -1,7 +1,7 @@
 ﻿
 namespace ConsolkaBilibaka
 {
-    public class Program
+    public class Task2
     {
         public static void Main()
         {
