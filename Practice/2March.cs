@@ -2,7 +2,7 @@
 
 namespace Aluminewaya_Chashka
 {
-    public class Program
+    public class Task1
     {
         public static void Main()
         {
