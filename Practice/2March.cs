@@ -35,7 +35,7 @@ namespace Aluminewaya_Chashka
 
         public virtual void Print()
         {
-            Console.WriteLine($"Студентка?Молоденькая? {StudentkaMolodenkaya}. Че как двигаешься по жизни {Kakestttt}. Твои родители случайно не {Mamamama}? Тогда почему ты такая яркая?");
+            Console.WriteLine($"Студентка?Молоденькая? {StudentkaMolodenkaya}. Че как двигаешься по жизни {Kakestttt}. Ты случайно не {Mamamama}? Тогда почему ты такая яркая?");
         }
 
 
