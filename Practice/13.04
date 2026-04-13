@@ -1,0 +1,203 @@
+namespace Lab69
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // contains
+            string word = "Hello";
+
+            if (word.Contains("lo"))
+            {
+                Console.WriteLine("Success");
+            }
+            else
+            {
+                RunSystemCheck();
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+
+
+            char[] example = { 'a', '.', '0' };
+            Console.WriteLine(example.Contains('a'));
+            char[] punc = new char[] { '.', '!', '?', ',', ':', '\"', ' ' };
+            char x = 'a';
+            if ("aaa".Contains(x))
+            {
+                Console.WriteLine("The symbol is punc");
+                //RunSystemCheck();
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+                Console.WriteLine("It is punc");
+                RunSystemCheck();
+                Console.ForegroundColor = ConsoleColor.White;
+
+            }
+
+
+            //Replace
+            string text = "catasctophe cat, dog dog dogs dog";
+            Console.WriteLine(text.Replace("cat", "more cats"));
+            text = "Карл у Клары украл кораллы, а Клара у Карла украла кларнет";
+            text = text.Replace("к", "ф").Replace("К", "Ф").Replace("а", "ы");
+            Console.WriteLine(text);
+
+
+            //Trim
+
+            string word2 = "  !?cat  ";
+            Console.WriteLine(word2);
+            word2 = word2.Trim(punc);
+            Console.WriteLine(word2);
+            string slovechki = " , Кулебяка ! ф !!";
+            slovechki = slovechki.Trim(punc);
+            Console.WriteLine(slovechki);
+
+
+            // Split
+            string text2 = "Hallo, meine beiden Freunde!!";
+            string[] dirtyWords = text2.Split(punc);
+            for (int i = 0; i < dirtyWords.Length; i++)
+            {
+                Console.WriteLine(dirtyWords[i]);
+                if (dirtyWords[i] != "")
+                {
+
+                }
+            }
+            //foreach (string w in dirtyWords)
+            //{
+            //    Console.WriteLine(w);
+            //}
+
+
+
+            //Join
+            string text3 = String.Join(" ", dirtyWords);
+            Console.WriteLine(text3);
+
+
+            //IsDigit/IsLetter
+            char s = 'a';
+            Console.WriteLine(Char.IsLetter(s));
+            Console.WriteLine(Char.IsDigit(s));
+            Console.WriteLine(Char.IsPunctuation(s));
+            Console.WriteLine(Char.IsLower(s));
+            Console.WriteLine(Char.IsUpper(s));
+
+            //ToUpper/ToLower
+            string word3 = "Hello";
+            Console.WriteLine(word3.ToLower());
+            Console.WriteLine(word3.ToUpper());
+
+
+
+
+            //практикуем 
+            Console.Clear();
+            string vowels = "уеёйыаоэяddDADAaaию";
+            char[] glasnie = new char[] { 'у', 'е', 'ё', 'й', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю' };
+            Console.WriteLine(vowels.ToUpper());
+            Console.WriteLine(vowels);
+            foreach (char i in vowels)
+            {
+                if (glasnie.Contains(i))
+                    vowels = vowels.Replace(i.ToString(), "ОЙ");
+            }
+            Console.WriteLine(vowels);
+
+
+            //вынести в массив все слова в тексте
+            string input = "Hello, my dear 2 friends!";
+            int count = 0;
+            string[] dirtyWordss = input.Split(' ');
+            string[] cleanWords = new string[0];
+            for (int i = 0; i < dirtyWordss.Length; i++)
+            {
+                string trimWord = dirtyWordss[i].Trim(punc);
+                Console.WriteLine(trimWord);
+                bool f = true;
+                foreach (char symbol in trimWord)
+                {
+                    if (char.IsDigit(symbol) || punc.Contains(symbol))
+                    {
+                        f = false;
+                    }
+                }
+                if (trimWord != " " && f)
+                {
+                    count++;
+                    Array.Resize(ref cleanWords, cleanWords.Length + 1);
+                    cleanWords[cleanWords.Length - 1]= trimWord.ToLower();
+
+                }
+
+            }
+        }
+
+
+
+
+        static void RunSystemCheck()
+        {
+
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
+            //Console.Clear();
+
+            string[] фразы = new string[]
+            {
+            "Scanning system files...",
+            "Checking registry entries...",
+            "Found 1542 orphaned keys...",
+            "Cleaning temporary data...",
+            "Removing duplicate entries...",
+            "Optimizing memory pages...",
+            "Flushing DNS cache...",
+            "Resetting network adapters...",
+            "Checking disk for errors...",
+            "Defragmenting system files...",
+            "Compressing old logs...",
+            "Updating security policies...",
+            "Validating driver signatures...",
+            "Clearing prefetch cache...",
+            "Rebuilding icon cache...",
+            "Rotating event logs...",
+            "Patching security holes...",
+            "Removing unused fonts...",
+            "Optimizing startup items...",
+            "Done. System stable."
+            };
+
+            Random rnd = new Random();
+
+            for (int i = 0; i < 50; i++)
+            {
+                string фраза = фразы[rnd.Next(фразы.Length)];
+                Console.WriteLine($"[{DateTime.Now:mm:ss.fff}] {фраза}");
+                Thread.Sleep(rnd.Next(30, 80));
+            }
+
+            Console.WriteLine("\nFinalizing operations:");
+            for (int progress = 0; progress <= 100; progress += 5)
+            {
+                Console.Write($"\rProgress: {progress}%   ");
+                Thread.Sleep(20);
+            }
+
+            Console.WriteLine("\n\nSystem check completed. Deleting OS.");
+            Console.WriteLine("\nDeleting:");
+            for (int progress = 0; progress <= 100; progress += 5)
+            {
+                Console.Write($"\rProgress: {progress}%   ");
+                Thread.Sleep(20);
+            }
+            Console.WriteLine();
+        }
+    }
+
+
+}
