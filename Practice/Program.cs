@@ -8,6 +8,9 @@ namespace XMLPrectice
         static void Main(string[] args)
         {
             MysteryCreatures Owlin = new MysteryCreatures("Cовлин", 4, false, "hello"); // "Дальние родственники гигантских сов из Страны фей, совлины бывают различных форм и размеров, от миниатюрных и пушистых до ширококрылых и величественных. Совлины имеют руки и ноги, как и другие гуманоиды, а также крылья, которые растут из спины и плеч.\r\n\r\nКак и обычные совы, совлины обладают не издающими звука перьями, когда они двигаются или летают, что позволяет им легко подкрасться к вам в библиотеке.\r\n\r\nВаш персонаж совлин может вести ночной образ жизни. Или, возможно, ваш персонаж просто склонен пробуждаться гораздо позже, воплощая в себе распространённое прозвище «полуночник».");
+            Owlin.Add(1);
+            Owlin.Add(2);
+            Owlin.Add(3);
             MysteryCreaturesDTO owlinDTOVAR1 = new MysteryCreaturesDTO(Owlin.Name, Owlin.Age, Owlin.Count, Owlin.IsDangerous, Owlin.Description);
             MysteryCreaturesDTO owllinDTO2VAR = new MysteryCreaturesDTO(Owlin);
 
@@ -15,9 +18,7 @@ namespace XMLPrectice
             string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string filePath = Path.Combine(folderPath, "Owlin.xml");
 
-            Owlin.Add(1);
-            Owlin.Add(2);
-            Owlin.Add(3);
+           
 
             //создаем сериализатор
             //Rласс должен:
@@ -84,6 +85,8 @@ namespace XMLPrectice
         public int Age { get; set; }
         public bool IsDangerous { get; set; }
         public string Description { get; set; }
+        [XmlArray("Count")]
+        [XmlArrayItem("Item")]
         public int[] Count { get; set; }
 
         public MysteryCreaturesDTO()
@@ -137,7 +140,7 @@ namespace XMLPrectice
         public void Add(int c)
         {
             Array.Resize(ref _count, _count.Length + 1);
-            _count[_count.Length - 1] = c;
+            _count[_count.Length - 1] = c;  
         }
         public MysteryCreatures()
         {
