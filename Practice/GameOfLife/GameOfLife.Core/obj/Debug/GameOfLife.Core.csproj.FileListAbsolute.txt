@@ -1,0 +1,2 @@
+C:\Users\m2505609.STUD\source\repos\GameOfLife\GameOfLife.Core\obj\Debug\GameOfLife.Core.csproj.AssemblyReference.cache
+C:\Users\m2505609.STUD\source\repos\GameOfLife\GameOfLife.Core\obj\Debug\GameOfLife.Core.csproj.CoreCompileInputs.cache

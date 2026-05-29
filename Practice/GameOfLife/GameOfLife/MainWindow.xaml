@@ -1,0 +1,37 @@
+﻿<Window x:Class="GameOfLife.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GameOfLife"
+        mc:Ignorable="d"
+        Title="Игра" Height="700" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto">
+
+            </RowDefinition>
+            <RowDefinition >
+
+            </RowDefinition>
+            <RowDefinition Height="Auto">
+
+            </RowDefinition>
+            
+            
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <Button Click="StartClick" Content="Start" Width="110" Height="45" Margin="5" Background="Red"></Button>
+            <Button Click="StopClick" Content="Stop" Width="110" Height="45" Margin="5"></Button>
+            <Button Click ="ResetClick" Content="Reset" Width="110" Height="45" Margin="5"></Button>
+            <Separator Width="130" Visibility="Hidden"></Separator>
+            <Button Content="Start" Width="110" Height="45" Margin="5"></Button>
+            <TextBlock Text="Интервал (ms):" VerticalAlignment="Center" Margin="15 0 5 0"></TextBlock>
+            <TextBox Text="200" VerticalContentAlignment="Center" Height="20" Width="20"></TextBox>
+        </StackPanel>
+        <Border Grid.Row="1" BorderBrush="ForestGreen" BorderThickness="2" Margin="10" Background="Wheat">
+            <UniformGrid Rows="20" Columns="30" Background="DimGray"></UniformGrid>
+        </Border>
+        <TextBlock x:Name ="tbGenerations" Grid.Row="2" Text="Generation 1" Margin="13" FontSize="20" FontWeight="SemiBold"></TextBlock>
+    </Grid>
+</Window>
